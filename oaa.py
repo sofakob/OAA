@@ -18,23 +18,23 @@ def create_table(params):
     if name in tables:
         return "Помилка, таблиця з цією назвою вже існує :("
     tables[name] = {"columns": columns, "data": []}
-    return f"Створена таблиця {name}:)"
+    return f"Створена таблиця {name}(✯◡✯) "
 
 
 def insert_into_table(params):
     name, value= params
     if name not in tables:
-        return f"Помилка:( {name} такої таблиці не існує"
+        return f"Помилка:( {name} такої таблиці не існує (✧ω✧) "
     value = [v.strip('"') for v in value.split(", \"")]
     if len(value)!= len(tables[name]["columns"]):
         return "Помилка кількість стовпчиків в створеній таблиці і при заповнені таблиці відрізняется:("
     tables[name]["data"].append(value)
-    return f"Один рядок додан в таблицю {name}:)"
+    return f"Один рядок додан в таблицю {name}(„• ᴗ •„) "
 
 def select_from_table(params):
     name1, join_clause, where_clause = params
     if name1 not in tables:
-        return f"Error: Table {name1} does not exist."
+        return f"Помилка {name1} таблиці з таким ім'ям не існує."
     columns = tables[name1]["columns"]
     rows = tables[name1]["data"]
 
@@ -111,7 +111,7 @@ def main():
                 print(result)
                 break
         else:
-            print("Такої команди не існує або введена не коректно")
+            print("Такої команди не існує або введена не коректно (⌒▽⌒)☆ ")
 
        
 
