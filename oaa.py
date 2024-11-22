@@ -27,30 +27,30 @@ def insert_into_table(params):
         return f"Помилка:( {name} такої таблиці не існує (✧ω✧) "
     value = [v.strip('"') for v in value.split(", \"")]
     if len(value)!= len(tables[name]["columns"]):
-        return "Помилка кількість стовпчиків в створеній таблиці і при заповнені таблиці відрізняется:("
+        return "Помилка кількість стовпчиків в створеній таблиці і при заповнені таблиці відрізняется(*/_＼) "
     tables[name]["data"].append(value)
     return f"Один рядок додан в таблицю {name}(„• ᴗ •„) "
 
 def select_from_table(params):
     name1, join_clause, where_clause = params
     if name1 not in tables:
-        return f"Помилка {name1} таблиці з таким ім'ям не існує."
+        return f"Помилка {name1} таблиці з таким ім'ям не існує(＃￣0￣) "
     columns = tables[name1]["columns"]
     rows = tables[name1]["data"]
 
     if join_clause:
         match = re.match(r"(\w+)\s* ON \s*(\w+)\s*=\s*(\w+)", join_clause)
         if not match:
-            return "Помилка при вводі команди"
+            return "Помилка при вводі команди( `ε´ ) "
         name2, t1_col, t2_col = match.groups()
 
 
         if name2 not in tables:
-            return f"Помилка таблиці з назвою {name2} не існує"
+            return f"Помилка таблиці з назвою {name2} не існує。゜゜(´Ｏ`) ゜゜。 "
         
 
         if t1_col not in columns or t2_col not in tables[name2]["columns"]:
-            return f"Помилка зі стовпчиками в таблицях"
+            return f"Помилка зі стовпчиками в таблицях(｡•́︿•̀｡) "
         
         col_id1=columns.index(t1_col)
         col_id2=tables[name2]["columns"].index(t2_col)
@@ -82,7 +82,7 @@ def select_from_table(params):
     if where_clause:
        column, value = re.match(r"(\w+)\s*=\s*\"(.+)\"", where_clause).groups()
        if column not in columns:
-            return f"Помилка стовчика {column} не існує {name1}."
+            return f"Помилка стовчика {column} не існує {name1}(→_→) "
        col_idx = columns.index(column)
        rows = [row for row in rows if row[col_idx] == value]
 
@@ -111,7 +111,7 @@ def main():
                 print(result)
                 break
         else:
-            print("Такої команди не існує або введена не коректно (⌒▽⌒)☆ ")
+            print("Такої команди не існує або введена не коректно (＿ ＿*) Z z z ")
 
        
 
